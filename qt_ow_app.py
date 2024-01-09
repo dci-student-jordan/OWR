@@ -7,6 +7,8 @@ from sys import argv
 from time import sleep
 from radio import Background_Radio_Thread
 from requests import get
+from dotenv import load_dotenv
+from os import getenv
 
 from PyQt5 import QtCore, QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QLineEdit, QComboBox, QGraphicsDropShadowEffect
@@ -23,6 +25,7 @@ class MainWindow(QMainWindow):
         self.city_name = 'Berlin'
         self.city_searches = [self.city_name]
         self.search_index = 0
+        load_dotenv()
         self.Radio = Background_Radio_Thread()
         self.stations_to_chose = []
         self.selected_station_index = 0
@@ -131,7 +134,7 @@ class MainWindow(QMainWindow):
             self.location_edit.setText(self.city_searches[index])
 
     def op_request(self, city):
-        api_key = 'e8693736460fda1afa468683c6f17ea3'
+        api_key = getenv('OPENWEATHERAPIKEY')
         url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
         response = get(url)
         info = ""

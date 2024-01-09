@@ -2,3 +2,4 @@ miniaudio
 pyradios
 PyQt5
 requests
+pathon_dotenv

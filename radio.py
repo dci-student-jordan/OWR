@@ -51,7 +51,7 @@ class Background_Radio_Thread(QtCore.QObject):
                 future.result(timeout=3)
                 print("stream CONNECTED")
             except concurrent.futures.TimeoutError:
-                print("stream conection TIMEDOUT")
+                print("stream connection TIMEDOUT")
                 radios_list.remove(radio_dict)
                 self.select_random_station(radios_list)
         # print("post stream, pre audio_device start")
