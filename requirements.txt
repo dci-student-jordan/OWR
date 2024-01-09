@@ -1,0 +1,4 @@
+miniaudio=1.59
+pyradios=2.0.0
+PyQt5-Qt5=5.15.2
+requests=2.31.0
